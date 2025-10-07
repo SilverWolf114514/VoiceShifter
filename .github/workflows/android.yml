@@ -10,10 +10,10 @@ jobs:
     
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4  # 更新至v4
 
     - name: Set up JDK 11
-      uses: actions/setup-java@v3
+      uses: actions/setup-java@v4  # 更新至v4
       with:
         java-version: '11'
         distribution: 'temurin'
@@ -25,7 +25,7 @@ jobs:
       run: ./gradlew assembleDebug
 
     - name: Upload APK
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4  # 关键：v3已弃用，必须改为v4
       with:
         name: VoiceShifter-APK
         path: app/build/outputs/apk/debug/app-debug.apk
